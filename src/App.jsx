@@ -1,9 +1,13 @@
-import { useState } from "react";
+import IncomeForm from "./components/IncomeForm";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 function App() {
-  return <div className="App">Capstone Project</div>;
+  return (
+    <>
+      <IncomeForm />{" "}
+    </>
+  );
 }
 
 export default App;
