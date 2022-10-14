@@ -23,7 +23,7 @@ export default function IncomeForm() {
       addIncome("Income", {
         source: income.source,
         amount: income.amount,
-        date: Date.now(),
+        date: new Date().toString().slice(0, 15),
       });
     } else {
       setError("Source and amount are required...");
