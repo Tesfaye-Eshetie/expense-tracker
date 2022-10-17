@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { addIncome } from "../detabase/indexedDB";
+import { v4 as uuid } from "uuid";
 
 export default function IncomeForm() {
   const [income, setIncome] = useState({});
@@ -20,7 +21,7 @@ export default function IncomeForm() {
       income.amount &&
       income.amount !== ""
     ) {
-      addIncome("Income", {
+      addIncome(uuid(), {
         source: income.source,
         amount: income.amount,
         date: new Date().toString().slice(0, 15),

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { addExpense } from "../detabase/indexedDB";
+import { v4 as uuid } from "uuid";
 
 export default function ExpenseForm() {
   const [expense, setExpense] = useState({});
@@ -20,7 +21,7 @@ export default function ExpenseForm() {
       expense.amount &&
       expense.amount !== ""
     ) {
-      addExpense("Expense", {
+      addExpense(uuid(), {
         category: expense.category,
         item: expense.item,
         amount: expense.amount,
