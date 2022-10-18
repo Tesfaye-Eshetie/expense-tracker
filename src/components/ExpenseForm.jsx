@@ -58,7 +58,6 @@ export default function ExpenseForm() {
               <option value="Transportation">Transportation</option>
               <option value="Travel">Travel</option>
               <option value="Utilities">Utilities</option>
-
             </select>
           </label>
         </div>
