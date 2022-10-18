@@ -44,9 +44,21 @@ export default function ExpenseForm() {
               value={expense.category || "other"}
               onChange={handleChange}
             >
-              <option value="Mortgage/Rent">Mortgage/Rent</option>
+              <option value="Amazon">Amazon</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Education">Education</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Food">Food and Drinks</option>
               <option value="Grocery">Grocery</option>
-              <option value="other">other</option>
+              <option value="Household">Household Supplies</option>
+              <option value="Miscellaneous">Miscellaneous</option>
+              <option value="Mortgage/Rent">Mortgage/Rent</option>
+              <option value="Personal">Personal Care</option>
+              <option value="Pets">Pets</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Travel">Travel</option>
+              <option value="Utilities">Utilities</option>
+
             </select>
           </label>
         </div>
