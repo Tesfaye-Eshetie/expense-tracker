@@ -14,18 +14,19 @@ export default function ExpenseForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const key = uuid();
     if (
       expense.item &&
       expense.item !== "" &&
       expense.amount &&
       expense.amount !== ""
     ) {
-      addExpense(uuid(), {
+      addExpense(key, {
         category: expense.category,
         item: expense.item,
         amount: expense.amount,
         date: new Date().toString().slice(0, 15),
+        id: key,
       });
     } else {
       setError("Item and amount are required...");
