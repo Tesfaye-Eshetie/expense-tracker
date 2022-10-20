@@ -16,10 +16,10 @@ export default function FetchExpense() {
 
   return (
     <section className="expense_container">
-      <h2>Expenses Chart</h2>
+      <h2>Expense Chart</h2>
       {expense.map((exp) => (
         <div className="exp_card" key={exp.id}>
-          <h4>Catagory: {exp.category}</h4>
+          <h4>Category: {exp.category}</h4>
           <ul>
             <li>Item: {exp.item}</li>
             <li>Amount: {exp.amount}</li>

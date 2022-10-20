@@ -14,6 +14,7 @@ export default function IncomeForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const key = uuid();
 
     if (
       income.source &&
@@ -21,10 +22,11 @@ export default function IncomeForm() {
       income.amount &&
       income.amount !== ""
     ) {
-      addIncome(uuid(), {
+      addIncome(key, {
         source: income.source,
         amount: income.amount,
         date: new Date().toString().slice(0, 15),
+        id: key,
       });
     } else {
       setError("Source and amount are required...");
