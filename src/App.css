@@ -67,7 +67,7 @@ body {
   list-style: none;
 }
 
-button {
+.button {
   font-size: 0.9rem;
   font-weight: 700;
   padding: 0.8em 1.6em;
@@ -106,9 +106,8 @@ button:hover {
 .input-flex.success input {
   border-color: #09c372;
 }
-.input-control .error {
+.input-control .input_error {
   color: #ff3860;
-  font-size: 0.8rem;
 }
 .input-flex.error input::placeholder {
   color: #ff3860;

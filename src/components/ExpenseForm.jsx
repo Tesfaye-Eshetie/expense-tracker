@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { addExpense } from "../detabase/indexedDB";
 import { v4 as uuid } from "uuid";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export default function ExpenseForm() {
   const [expense, setExpense] = useState({});
-  const [error, setError] = useState("");
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -28,18 +30,19 @@ export default function ExpenseForm() {
         date: new Date().toString().slice(0, 15),
         id: key,
       });
+      setIsError(false);
     } else {
-      setError("Item and amount are required...");
+      setIsError(true);
     }
     setExpense({});
   };
 
   return (
-    <form className="form" action="/" onSubmit={handleSubmit}>
+    <Form className="form" action="/" onSubmit={handleSubmit}>
       <div className="input-control">
         <div id="input-flex">
           <label className="label">
-            Category:
+            Expense Category:
             <select
               name="category"
               value={expense.category || "other"}
@@ -59,41 +62,44 @@ export default function ExpenseForm() {
               <option value="Transportation">Transportation</option>
               <option value="Travel">Travel</option>
               <option value="Utilities">Utilities</option>
+              <option value="other" selected>
+                Other
+              </option>
             </select>
           </label>
         </div>
       </div>
-      <div className="input-control">
-        <div className="input-flex">
-          <label className="label">
-            Item
-            <input
-              type="text"
-              name="item"
-              value={expense.item || ""}
-              onChange={handleChange}
-              placeholder="Source of Expense..."
-            />
-          </label>
-        </div>
-        <div className="error">{error}</div>
-      </div>
-      <div className="input-control">
-        <div className="input-flex">
-          <label className="label">
-            Amount:
-            <input
-              type="text"
-              name="amount"
-              value={expense.amount || ""}
-              onChange={handleChange}
-              placeholder="amount..."
-            />
-          </label>
-        </div>
-        <div className="error">{error}</div>
-      </div>
-      <button type="submit">Expense</button>
-    </form>
+      <Form.Group className="mb-3 input-control">
+        <Form.Label>Reason of Expense</Form.Label>
+        <Form.Control
+          type="text"
+          name="item"
+          value={expense.item || ""}
+          onChange={handleChange}
+          placeholder="Enter reason of Expense ..."
+        />
+        {isError && (
+          <Form.Text className="text-muted">
+            Reason of Expense is requered?
+          </Form.Text>
+        )}
+      </Form.Group>
+      <Form.Group className="mb-3 input-control">
+        <Form.Label>Amount</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="amount..."
+          name="amount"
+          value={expense.amount || ""}
+          onChange={handleChange}
+        />
+        {isError && (
+          <Form.Text className="text-muted">Amount is requered?</Form.Text>
+        )}
+      </Form.Group>
+      <Button variant="primary" type="submit" className="button">
+        Add Expense
+      </Button>
+    </Form>
   );
 }
