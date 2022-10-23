@@ -31,7 +31,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px solid var(--clr-dark);
-  width: 40vw;
+  width: 90%;
   margin: 4rem;
   padding: 2rem;
   background-color: var(--clr-light);
@@ -43,7 +43,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px solid var(--clr-dark);
-  width: 60vw;
+  width: 90%;
   margin: 4rem;
   padding: 2rem;
   background-color: var(--clr-secondery);
@@ -81,7 +81,7 @@ body {
   margin-top: 2rem;
   align-self: center;
 }
-button:hover {
+.button:hover {
   background-color: #fff;
   color: #000;
 }

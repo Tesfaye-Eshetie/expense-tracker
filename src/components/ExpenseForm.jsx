@@ -39,36 +39,33 @@ export default function ExpenseForm() {
 
   return (
     <Form className="form" action="/" onSubmit={handleSubmit}>
-      <div className="input-control">
-        <div id="input-flex">
-          <label className="label">
-            Expense Category:
-            <select
-              name="category"
-              value={expense.category || "other"}
-              onChange={handleChange}
-            >
-              <option value="Amazon">Amazon</option>
-              <option value="Clothing">Clothing</option>
-              <option value="Education">Education</option>
-              <option value="Entertainment">Entertainment</option>
-              <option value="Food">Food and Drinks</option>
-              <option value="Grocery">Grocery</option>
-              <option value="Household">Household Supplies</option>
-              <option value="Miscellaneous">Miscellaneous</option>
-              <option value="Mortgage/Rent">Mortgage/Rent</option>
-              <option value="Personal">Personal Care</option>
-              <option value="Pets">Pets</option>
-              <option value="Transportation">Transportation</option>
-              <option value="Travel">Travel</option>
-              <option value="Utilities">Utilities</option>
-              <option value="other" selected>
-                Other
-              </option>
-            </select>
-          </label>
-        </div>
-      </div>
+      <Form.Group className="mb-3 input-control">
+        <Form.Label>Expense Category:</Form.Label>
+        <Form.Select
+          name="category"
+          value={expense.category || "other"}
+          onChange={handleChange}
+          aria-label="other"
+        >
+          <option value="Amazon">Amazon</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Education">Education</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Food">Food and Drinks</option>
+          <option value="Grocery">Grocery</option>
+          <option value="Household">Household Supplies</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+          <option value="Mortgage/Rent">Mortgage/Rent</option>
+          <option value="Personal">Personal Care</option>
+          <option value="Pets">Pets</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Travel">Travel</option>
+          <option value="Utilities">Utilities</option>
+          <option value="other" selected>
+            Other
+          </option>
+        </Form.Select>
+      </Form.Group>
       <Form.Group className="mb-3 input-control">
         <Form.Label>Reason of Expense</Form.Label>
         <Form.Control
