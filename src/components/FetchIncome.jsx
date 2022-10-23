@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { database } from "../detabase/indexedDB";
 import DisplayTable from "./DisplayTable";
+import Container from "react-bootstrap/Container";
 
 export default function FetchIncome() {
   const [income, setIncome] = useState([]);
@@ -15,23 +16,9 @@ export default function FetchIncome() {
     getIncome();
   }, [income]);
   return (
-    <section className="display_container">
+    <Container className="p-4">
       <h2>Income Chart</h2>
       <DisplayTable name={"Income source"} data={income} />
-      {/* <ul className="bold_list">
-        <li>Source</li>
-        <li>Amount</li>
-      </ul>
-      {income.map((inc) => (
-        <ul key={inc.id}>
-          <li>{inc.source}</li>
-          <li>{parseInt(inc.amount).toFixed(2)}</li>
-        </ul>
-      ))}
-      <ul className="bold_list">
-        <li>Total Income</li>
-        <li>Amount</li>
-      </ul> */}
-    </section>
+    </Container>
   );
 }

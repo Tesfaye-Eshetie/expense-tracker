@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Container from "react-bootstrap/Container";
 import { database } from "../detabase/indexedDB";
+import DisplayTable from "./DisplayTable";
 
 export default function FetchExpense() {
   const [expense, setExpense] = useState([]);
@@ -15,18 +17,9 @@ export default function FetchExpense() {
   }, [expense]);
 
   return (
-    <section className="display_container">
+    <Container className="p-4">
       <h2>Expense Chart</h2>
-      {expense.map((exp) => (
-        <div className="exp_card" key={exp.id}>
-          <h4>Category: {exp.category}</h4>
-          <ul>
-            <li>Item: {exp.item}</li>
-            <li>Amount: {exp.amount}</li>
-            <li>Date: {exp.date}</li>
-          </ul>
-        </div>
-      ))}
-    </section>
+      <DisplayTable name={"Reason for Expense"} data={expense} />
+    </Container>
   );
 }
