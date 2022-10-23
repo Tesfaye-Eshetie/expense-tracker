@@ -15,7 +15,7 @@ export default function FetchExpense() {
   }, [expense]);
 
   return (
-    <section className="expense_container">
+    <section className="display_container">
       <h2>Expense Chart</h2>
       {expense.map((exp) => (
         <div className="exp_card" key={exp.id}>

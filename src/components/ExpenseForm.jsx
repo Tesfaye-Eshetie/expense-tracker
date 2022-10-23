@@ -94,7 +94,7 @@ export default function ExpenseForm() {
           <Form.Text className="text-muted">Amount is requered?</Form.Text>
         )}
       </Form.Group>
-      <Button variant="primary" type="submit" className="button">
+      <Button variant="outline-primary" type="submit">
         Add Expense
       </Button>
     </Form>
