@@ -18,6 +18,9 @@ export default function ExpenseForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const key = uuid();
+    const d = new Date();
+    const data = `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
+
     if (
       expense.item &&
       expense.item !== "" &&
@@ -28,7 +31,7 @@ export default function ExpenseForm() {
         category: expense.category,
         item: expense.item,
         amount: expense.amount,
-        date: new Date().toString().slice(0, 15),
+        date: data,
         id: key,
       });
       setIsError(false);
@@ -41,6 +44,7 @@ export default function ExpenseForm() {
   return (
     <Card className="m-4">
       <Card.Body className="p-4">
+        <h4 className="text-capitalize pb-3">Inter your expense Information</h4>
         <Form action="/" onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label className="fw-bolder">Expense Category:</Form.Label>
@@ -76,11 +80,11 @@ export default function ExpenseForm() {
               onChange={handleChange}
               placeholder="Enter reason of Expense ..."
             />
-            {isError && (
+            {isError ? (
               <Form.Text className="text-muted text-danger">
                 <p className="text-danger">Reason of Expense is requered?</p>
               </Form.Text>
-            )}
+            ) : null}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label className="fw-bolder">Amount</Form.Label>
@@ -91,11 +95,11 @@ export default function ExpenseForm() {
               value={expense.amount || ""}
               onChange={handleChange}
             />
-            {isError && (
+            {isError ? (
               <Form.Text className="text-muted">
                 <p className="text-danger">Amount is requered?</p>
               </Form.Text>
-            )}
+            ) : null}
           </Form.Group>
           <Button variant="primary" type="submit">
             Add Expense

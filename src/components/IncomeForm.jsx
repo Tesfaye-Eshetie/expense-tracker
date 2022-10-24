@@ -18,6 +18,8 @@ export default function IncomeForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const key = uuid();
+    const d = new Date();
+    const data = `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
 
     if (
       income.source &&
@@ -28,7 +30,7 @@ export default function IncomeForm() {
       addIncome(key, {
         source: income.source,
         amount: income.amount,
-        date: new Date().toString().slice(0, 15),
+        date: data,
         id: key,
       });
       setIsError(false);
@@ -41,6 +43,7 @@ export default function IncomeForm() {
   return (
     <Card className="m-4">
       <Card.Body className="p-4">
+        <h4 className="text-capitalize pb-3">Inter your Income Information</h4>
         <Form action="/" onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label className="fw-bolder">Income Source</Form.Label>
@@ -51,11 +54,11 @@ export default function IncomeForm() {
               onChange={handleChange}
               placeholder="Enter source of income..."
             />
-            {isError && (
+            {isError ? (
               <Form.Text className="text-muted">
                 <p className="text-danger">Source of income is requered?</p>
               </Form.Text>
-            )}
+            ) : null}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label className="fw-bolder">Amount</Form.Label>
@@ -66,11 +69,11 @@ export default function IncomeForm() {
               value={income.amount || ""}
               onChange={handleChange}
             />
-            {isError && (
+            {isError ? (
               <Form.Text className="text-muted">
                 <p className="text-danger">Amount is requered?</p>
               </Form.Text>
-            )}
+            ) : null}
           </Form.Group>
           <Button variant="primary" type="submit">
             Add Income

@@ -3,7 +3,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 
 export default function DisplayTable({ name, data }) {
   return (
-    <Table striped bordered hover>
+    <Table hover className="table-sm">
       <thead>
         <tr>
           <th>#</th>

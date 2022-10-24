@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
 import { database } from "../detabase/indexedDB";
 import DisplayTable from "./DisplayTable";
+import Card from "react-bootstrap/Card";
 
 export default function FetchExpense() {
   const [expense, setExpense] = useState([]);
+  const [isDataAvailable, setIsDataAvailable] = useState(false);
 
   const getExpense = async () => {
     (await database).getAll("expenseStore").then((data) => {
       setExpense(data);
+      data.length ? setIsDataAvailable(true) : setIsDataAvailable(false);
     });
   };
 
@@ -16,10 +18,12 @@ export default function FetchExpense() {
     getExpense();
   }, [expense]);
 
-  return (
-    <Container className="p-4">
-      <h2>Expense Chart</h2>
-      <DisplayTable name={"Reason for Expense"} data={expense} />
-    </Container>
-  );
+  return isDataAvailable ? (
+    <Card className="m-4">
+      <Card.Body className="p-4">
+        <h4 className="text-capitalize pb-3">Expense Chart</h4>
+        <DisplayTable name={"Reason for Expense"} data={expense} />
+      </Card.Body>
+    </Card>
+  ) : null;
 }
