@@ -43,7 +43,7 @@ export default function ExpenseForm() {
       <Card.Body className="p-4">
         <Form action="/" onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label class="fw-bolder">Expense Category:</Form.Label>
+            <Form.Label className="fw-bolder">Expense Category:</Form.Label>
             <Form.Select
               name="category"
               value={expense.category || "other"}
@@ -64,13 +64,11 @@ export default function ExpenseForm() {
               <option value="Transportation">Transportation</option>
               <option value="Travel">Travel</option>
               <option value="Utilities">Utilities</option>
-              <option value="other" selected>
-                Other
-              </option>
+              <option value="other">Other</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label class="fw-bolder">Reason of Expense</Form.Label>
+            <Form.Label className="fw-bolder">Reason of Expense</Form.Label>
             <Form.Control
               type="text"
               name="item"
@@ -85,7 +83,7 @@ export default function ExpenseForm() {
             )}
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label class="fw-bolder">Amount</Form.Label>
+            <Form.Label className="fw-bolder">Amount</Form.Label>
             <Form.Control
               type="text"
               placeholder="amount..."
@@ -99,7 +97,7 @@ export default function ExpenseForm() {
               </Form.Text>
             )}
           </Form.Group>
-          <Button variant="outline-primary" type="submit">
+          <Button variant="primary" type="submit">
             Add Expense
           </Button>
         </Form>

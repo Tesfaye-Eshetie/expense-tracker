@@ -4,6 +4,7 @@ import ExpenseForm from "./components/ExpenseForm";
 import FetchExpense from "./components/FetchExpense";
 import FetchIncome from "./components/FetchIncome";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -17,24 +18,25 @@ function App() {
       <Header />
       <Container>
         <Row>
-          <Col xs={12} md={6}>
+          <Col md={12} lg={6}>
             <IncomeForm />
           </Col>
-          <Col xs={12} md={6}>
+          <Col md={12} lg={6}>
             <ExpenseForm />
           </Col>
         </Row>
       </Container>
       <Container>
         <Row>
-          <Col xs={12} md={6}>
+          <Col md={12} lg={6}>
             <FetchIncome />
           </Col>
-          <Col xs={12} md={6}>
+          <Col md={12} lg={6}>
             <FetchExpense />
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }

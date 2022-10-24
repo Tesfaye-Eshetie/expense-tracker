@@ -43,7 +43,7 @@ export default function IncomeForm() {
       <Card.Body className="p-4">
         <Form action="/" onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label class="fw-bolder">Income Source</Form.Label>
+            <Form.Label className="fw-bolder">Income Source</Form.Label>
             <Form.Control
               type="text"
               name="source"
@@ -58,7 +58,7 @@ export default function IncomeForm() {
             )}
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label class="fw-bolder">Amount</Form.Label>
+            <Form.Label className="fw-bolder">Amount</Form.Label>
             <Form.Control
               type="text"
               placeholder="amount..."
@@ -72,7 +72,7 @@ export default function IncomeForm() {
               </Form.Text>
             )}
           </Form.Group>
-          <Button variant="outline-primary" type="submit">
+          <Button variant="primary" type="submit">
             Add Income
           </Button>
         </Form>
