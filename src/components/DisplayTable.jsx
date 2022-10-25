@@ -1,5 +1,5 @@
+import { formatCurrency } from "../utilities/formatCurrency";
 import Table from "react-bootstrap/Table";
-import { BsCurrencyDollar } from "react-icons/bs";
 
 export default function DisplayTable({ name, data }) {
   return (
@@ -17,9 +17,7 @@ export default function DisplayTable({ name, data }) {
           <tr key={d.id}>
             <td>{index + 1}</td>
             <td>{d.source ? d.source : d.item}</td>
-            <td>
-              <BsCurrencyDollar /> {parseInt(d.amount).toFixed(2)}
-            </td>
+            <td>{formatCurrency(parseInt(d.amount))}</td>
             <td>{d.date}</td>
           </tr>
         ))}
