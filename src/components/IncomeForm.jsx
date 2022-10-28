@@ -44,7 +44,7 @@ export default function IncomeForm() {
     <Card className="m-4">
       <Card.Body className="p-4">
         <h4 className="text-capitalize pb-3">Inter your Income Information</h4>
-        <Form action="/" onSubmit={handleSubmit}>
+        <Form action="/" noValidate onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label className="fw-bolder">Income Source</Form.Label>
             <Form.Control
@@ -53,9 +53,10 @@ export default function IncomeForm() {
               value={income.source || ""}
               onChange={handleChange}
               placeholder="Enter source of income..."
+              required
             />
             {isError ? (
-              <Form.Text className="text-muted">
+              <Form.Text>
                 <p className="text-danger">Source of income is requered?</p>
               </Form.Text>
             ) : null}
@@ -70,7 +71,7 @@ export default function IncomeForm() {
               onChange={handleChange}
             />
             {isError ? (
-              <Form.Text className="text-muted">
+              <Form.Text>
                 <p className="text-danger">Amount is requered?</p>
               </Form.Text>
             ) : null}

@@ -81,7 +81,7 @@ export default function ExpenseForm() {
               placeholder="Enter reason of Expense ..."
             />
             {isError ? (
-              <Form.Text className="text-muted text-danger">
+              <Form.Text>
                 <p className="text-danger">Reason of Expense is requered?</p>
               </Form.Text>
             ) : null}
@@ -96,7 +96,7 @@ export default function ExpenseForm() {
               onChange={handleChange}
             />
             {isError ? (
-              <Form.Text className="text-muted">
+              <Form.Text>
                 <p className="text-danger">Amount is requered?</p>
               </Form.Text>
             ) : null}

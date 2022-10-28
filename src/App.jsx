@@ -16,20 +16,20 @@ function App() {
   return (
     <>
       <Header />
-      <Container>
+      <Container id="income">
         <Row>
           <Col md={12} lg={6}>
             <IncomeForm />
           </Col>
           <Col md={12} lg={6}>
-            <ExpenseForm />
+            <FetchIncome />
           </Col>
         </Row>
       </Container>
-      <Container>
+      <Container id="expense">
         <Row>
           <Col md={12} lg={6}>
-            <FetchIncome />
+            <ExpenseForm />
           </Col>
           <Col md={12} lg={6}>
             <FetchExpense />

@@ -17,10 +17,10 @@ export default function Header() {
             style={{ maxHeight: "100vh" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Income</Nav.Link>
-            <Nav.Link href="#action2">Expense</Nav.Link>
-            <Nav.Link href="#action2">Contact</Nav.Link>
+            <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link href="#income">Income</Nav.Link>
+            <Nav.Link href="#expense">Expense</Nav.Link>
+            <Nav.Link href="#contact">Contact</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
