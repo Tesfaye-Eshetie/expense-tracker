@@ -20,7 +20,9 @@ export default function FetchIncome() {
   return isDataAvailable ? (
     <Card className="m-4">
       <Card.Body className="p-4">
-        <h4 className="text-capitalize pb-3">Income Chart</h4>
+        <Card.Title className="text-capitalize pb-3 fw-bolder">
+          Income Chart
+        </Card.Title>
         <DisplayTable name={"Income source"} data={income} />
       </Card.Body>
     </Card>

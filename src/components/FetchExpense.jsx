@@ -21,7 +21,9 @@ export default function FetchExpense() {
   return isDataAvailable ? (
     <Card className="m-4">
       <Card.Body className="p-4">
-        <h4 className="text-capitalize pb-3">Expense Chart</h4>
+        <Card.Title className="text-capitalize pb-3 fw-bolder">
+          Expense Chart
+        </Card.Title>
         <DisplayTable name={"Reason for Expense"} data={expense} />
       </Card.Body>
     </Card>

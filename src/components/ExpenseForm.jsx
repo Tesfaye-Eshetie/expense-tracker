@@ -44,7 +44,9 @@ export default function ExpenseForm() {
   return (
     <Card className="m-4">
       <Card.Body className="p-4">
-        <h4 className="text-capitalize pb-3">Inter your expense Information</h4>
+        <Card.Title className="text-capitalize pb-3 fw-bolder">
+          Inter your expense Information
+        </Card.Title>
         <Form action="/" onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label className="fw-bolder">Expense Category:</Form.Label>
