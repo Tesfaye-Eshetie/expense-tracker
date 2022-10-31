@@ -20,6 +20,7 @@ export default function Header() {
             <Nav.Link href="#">Home</Nav.Link>
             <Nav.Link href="#income">Income</Nav.Link>
             <Nav.Link href="#expense">Expense</Nav.Link>
+            <Nav.Link href="#faq">FAQs</Nav.Link>
             <Nav.Link href="#contact">Contact</Nav.Link>
           </Nav>
           <Form className="d-flex">

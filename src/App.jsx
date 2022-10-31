@@ -11,6 +11,7 @@ import Col from "react-bootstrap/Col";
 
 // custom css
 import "./App.css";
+import DisplayFAQs from "./components/DisplayFAQs";
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
             <FetchExpense />
           </Col>
         </Row>
+      </Container>
+      <Container id="faq">
+        <DisplayFAQs />
       </Container>
       <Footer />
     </>
