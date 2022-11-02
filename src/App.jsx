@@ -8,10 +8,23 @@ import Footer from "./components/Footer";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ContactForm from "./components/ContactForm";
 
 // custom css
 import "./App.css";
 import DisplayFAQs from "./components/DisplayFAQs";
+// import './App.css'
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// import ContactForm from './components/ContactForm'
+// function App() {
+//   return (
+//     <div className="App">
+//       <ContactForm />
+//     </div>
+//   )
+// }
+// export default App
+
 
 function App() {
   return (
@@ -40,7 +53,11 @@ function App() {
       <Container id="faq">
         <DisplayFAQs />
       </Container>
+      <div className="App" Container id ="contact">
+       <ContactForm />
+     </div>
       <Footer />
+    
     </>
   );
 }
