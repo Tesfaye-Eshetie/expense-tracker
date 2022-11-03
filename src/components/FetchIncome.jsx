@@ -23,7 +23,7 @@ export default function FetchIncome() {
         <Card.Title className="text-capitalize pb-3 fw-bolder">
           Income Chart
         </Card.Title>
-        <DisplayTable name={"Income source"} data={income} />
+        <DisplayTable reason={"Income source"} data={income} name="Income" />
       </Card.Body>
     </Card>
   ) : null;

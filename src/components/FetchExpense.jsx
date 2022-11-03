@@ -24,7 +24,11 @@ export default function FetchExpense() {
         <Card.Title className="text-capitalize pb-3 fw-bolder">
           Expense Chart
         </Card.Title>
-        <DisplayTable name={"Reason for Expense"} data={expense} />
+        <DisplayTable
+          reason={"Reason for Expense"}
+          data={expense}
+          name="Expense"
+        />
       </Card.Body>
     </Card>
   ) : null;
