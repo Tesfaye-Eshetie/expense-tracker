@@ -1,4 +1,9 @@
 import React from 'react'
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
+
 const ContactForm = () => {
   const [formStatus, setFormStatus] = React.useState('Send')
   const onSubmit = (e) => {
@@ -13,9 +18,12 @@ const ContactForm = () => {
     console.log(conFom)
   }
   return (
-    <div className="container mt-5">
-      <h2 className="mb-3">Contact Us</h2>
-      <form onSubmit={onSubmit}>
+    <Card className="m-4">
+      <Card.Body className="p-4">
+        <Card.Title className="text-capitalize pb-3 fw-bolder">
+          Contact Us
+        </Card.Title>
+      <Form onSubmit={onSubmit}>
         <div className="mb-3">
           <label className="form-label" htmlFor="name">
             Name
@@ -34,11 +42,12 @@ const ContactForm = () => {
           </label>
           <textarea className="form-control" id="message" required />
         </div>
-        <button className="btn btn-danger" type="submit">
+        <Button type="submit">
           {formStatus}
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Form>
+      </Card.Body>
+    </Card>
   )
 }
 export default ContactForm
