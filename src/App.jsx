@@ -52,9 +52,9 @@ function App() {
       <Container id="faq">
         <DisplayFAQs />
       </Container>
-      <div className="App" Container id="contact">
+      <Container id="contact">
         <ContactForm />
-      </div>
+      </Container>
       <Footer />
     </>
   );

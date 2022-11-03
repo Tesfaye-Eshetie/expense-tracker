@@ -17,7 +17,6 @@ export default function Header() {
             style={{ maxHeight: "100vh" }}
             navbarScroll
           >
-            <Nav.Link href="#">Home</Nav.Link>
             <Nav.Link href="#income">Income</Nav.Link>
             <Nav.Link href="#expense">Expense</Nav.Link>
             <Nav.Link href="#faq">FAQs</Nav.Link>
