@@ -25,7 +25,6 @@ import DisplayFAQs from "./components/DisplayFAQs";
 // }
 // export default App
 
-
 function App() {
   return (
     <>
@@ -53,11 +52,10 @@ function App() {
       <Container id="faq">
         <DisplayFAQs />
       </Container>
-      <div className="App" Container id ="contact">
-       <ContactForm />
-     </div>
+      <div className="App" Container id="contact">
+        <ContactForm />
+      </div>
       <Footer />
-    
     </>
   );
 }
