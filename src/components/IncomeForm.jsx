@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { addIncome } from "../detabase/indexedDB";
+import { addIncome } from "../data/indexedDB";
 import { v4 as uuid } from "uuid";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
 
 export default function IncomeForm() {
   const [income, setIncome] = useState({});
@@ -41,48 +38,47 @@ export default function IncomeForm() {
   };
 
   return (
-    <Card className="m-4">
-      <Card.Body className="p-4">
-        <Card.Title className="text-capitalize pb-3 fw-bolder">
-          Inter your Income Information
-        </Card.Title>
-        <Form action="/" noValidate onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label className="fw-bolder">Income Source</Form.Label>
-            <Form.Control
-              type="text"
-              name="source"
-              value={income.source || ""}
-              onChange={handleChange}
-              placeholder="Enter source of income..."
-              required
-            />
-            {isError ? (
-              <Form.Text>
-                <p className="text-danger">Source of income is requered?</p>
-              </Form.Text>
-            ) : null}
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label className="fw-bolder">Amount</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="amount..."
-              name="amount"
-              value={income.amount || ""}
-              onChange={handleChange}
-            />
-            {isError ? (
-              <Form.Text>
-                <p className="text-danger">Amount is requered?</p>
-              </Form.Text>
-            ) : null}
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Add Income
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+    <form action="/" className="form" onSubmit={handleSubmit}>
+      <fieldset>
+        <legend>Inter your Income Information</legend>
+        <div className="input-control">
+          <div className="input-flex">
+            <label className="label">
+              Income Source:
+              <input
+                type="text"
+                name="source"
+                value={income.source || ""}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          {isError ? (
+            <div className="error">
+              <p className="text-danger">Source of income is requered?</p>
+            </div>
+          ) : null}
+        </div>
+        <div className="input-control">
+          <div className="input-flex">
+            <label className="label">
+              Amount:
+              <input
+                type="number"
+                name="amount"
+                value={income.amount || ""}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          {isError ? (
+            <div className="error">
+              <p className="text-danger">Amount is requered?</p>
+            </div>
+          ) : null}
+        </div>
+        <button type="submit">Add Income</button>
+      </fieldset>
+    </form>
   );
 }

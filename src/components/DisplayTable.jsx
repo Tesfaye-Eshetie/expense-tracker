@@ -1,11 +1,10 @@
 import { formatCurrency } from "../utilities/formatCurrency";
-import Table from "react-bootstrap/Table";
 
 export default function DisplayTable({ reason, data, name }) {
   let total = 0;
 
   return (
-    <Table hover className="table-sm">
+    <table hover className="table">
       <thead>
         <tr>
           <th>#</th>
@@ -25,11 +24,11 @@ export default function DisplayTable({ reason, data, name }) {
             <td>{d.date}</td>
           </tr>
         ))}
-        <tr className="text-center">
+        <tr className="table__text__center">
           <th colSpan={2}>Total {name}</th>
           <th colSpan={2}>{formatCurrency(total)}</th>
         </tr>
       </tbody>
-    </Table>
+    </table>
   );
 }
