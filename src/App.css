@@ -112,23 +112,13 @@ body {
   overflow-y: auto;
 }
 
-#header {
-  background-color: var(--clr-dark);
-  width: 100vw;
-  min-height: 8rem;
-  color: var(--clr-light);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 90vw;
-  min-height: 20rem;
+  min-height: 40vh;
   margin: 0 auto;
   background-color: var(--clr-primary);
 }
