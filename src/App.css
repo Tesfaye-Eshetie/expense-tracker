@@ -106,10 +106,12 @@ body {
 }
 #navbar__check:not(:checked) ~ .navbar__items {
   height: 0px;
+  align-items: flex-start;
 }
 #navbar__check:checked ~ .navbar__items {
-  height: calc(100vh - 50px);
+  height: calc(30vh);
   overflow-y: auto;
+  align-items: flex-start;
 }
 
 .container {
