@@ -21,11 +21,7 @@ export default function FetchExpense() {
     <div className="card">
       <div className="card__body">
         <h3 className="card__title">Expense Chart</h3>
-        <DisplayTable
-          reason={"Reason for Expense"}
-          data={expense}
-          name="Expense"
-        />
+        <DisplayTable reason={"Reason"} data={expense} name="Expense" />
       </div>
     </div>
   ) : null;

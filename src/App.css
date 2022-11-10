@@ -225,6 +225,22 @@ select > option {
   background-color: var(--clr-dark);
   color: var(--clr-light);
 }
+
+.table td,
+.table th {
+  padding: 8px;
+}
+.table tr:hover {
+  background-color: #e3e3e3;
+}
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+.table .table__text__center {
+  text-align: center;
+}
 .footer {
   background-color: var(--clr-dark);
   color: var(--clr-light);

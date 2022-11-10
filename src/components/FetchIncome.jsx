@@ -20,7 +20,7 @@ export default function FetchIncome() {
     <div className="card">
       <div className="card__body">
         <h3 className="card__title">Income Chart</h3>
-        <DisplayTable reason={"Income source"} data={income} name="Income" />
+        <DisplayTable reason={"Source"} data={income} name="Income" />
       </div>
     </div>
   ) : null;

@@ -4,7 +4,7 @@ export default function DisplayTable({ reason, data, name }) {
   let total = 0;
 
   return (
-    <table hover className="table">
+    <table className="table">
       <thead>
         <tr>
           <th>#</th>
@@ -24,9 +24,13 @@ export default function DisplayTable({ reason, data, name }) {
             <td>{d.date}</td>
           </tr>
         ))}
-        <tr className="table__text__center">
-          <th colSpan={2}>Total {name}</th>
-          <th colSpan={2}>{formatCurrency(total)}</th>
+        <tr>
+          <th colSpan={2} className="table__text__center">
+            Total {name}
+          </th>
+          <th colSpan={2} className="table__text__center">
+            {formatCurrency(total)}
+          </th>
         </tr>
       </tbody>
     </table>

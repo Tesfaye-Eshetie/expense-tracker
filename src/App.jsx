@@ -14,11 +14,11 @@ function App() {
   return (
     <>
       <Header />
-      <section className="container">
+      <section className="container" id="income">
         <IncomeForm />
         <FetchIncome />
       </section>
-      <section className="container">
+      <section className="container" id="expense">
         <ExpenseForm />
         <FetchExpense />
       </section>
