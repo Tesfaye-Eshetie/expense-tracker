@@ -40,7 +40,7 @@ export default function IncomeForm() {
   return (
     <form action="/" className="form" onSubmit={handleSubmit}>
       <fieldset>
-        <legend>Inter your Income Information</legend>
+        <legend>Enter Your Income Information</legend>
         <div className="input-control">
           <div className="input-flex">
             <label className="label">

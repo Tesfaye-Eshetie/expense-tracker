@@ -6,7 +6,7 @@ export default function Header() {
       <input type="checkbox" id="navbar__check" />
       <div className="navbar__logo">
         <a href="index.html">
-          <img src="#" alt="Logo" />
+          <img src="../assets/ExpensEit.png" alt="Logo" />
         </a>
       </div>
 

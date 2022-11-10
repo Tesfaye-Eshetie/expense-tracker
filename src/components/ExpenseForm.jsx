@@ -41,7 +41,7 @@ export default function ExpenseForm() {
   return (
     <form action="/" className="form" onSubmit={handleSubmit}>
       <fieldset>
-        <legend>Inter your expense Information</legend>
+        <legend>Enter Your Expense Information</legend>
         <div className="input-control">
           <div id="input-flex">
             <label className="label">
