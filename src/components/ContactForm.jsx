@@ -1,47 +1,148 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ContactForm = () => {
-  const [formStatus, setFormStatus] = React.useState("Send");
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setFormStatus("Submitting...");
-    const { name, email, message } = e.target.elements;
-    let conFom = {
-      name: name.value,
-      email: email.value,
-      message: message.value,
-    };
-    console.log(conFom);
+  const [message, setMessage] = useState("");
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [error, setError] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setContact((values) => ({ ...values, [name]: value }));
   };
-  return (
-    <Card className="m-4">
-      <Card.Body className="p-4">
-        <Card.Title className="text-capitalize pb-3 fw-bolder">
-          Contact Us
-        </Card.Title>
-        <Form onSubmit={onSubmit}>
-          <div className="mb-3">
-            <label className="form-label" htmlFor="name">
+
+  const isValidEmail = (mail) => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(mail).toLowerCase());
+  };
+
+  const validateInputs = (nameValue, emailValue, messageValue) => {
+    if (nameValue === "") {
+      setError((previousState) => {
+        return { ...previousState, name: "Name is requered?" };
+      });
+    } else {
+      setError((previousState) => {
+        return { ...previousState, name: "" };
+      });
+    }
+
+    if (emailValue === "") {
+      setError((previousState) => {
+        return { ...previousState, email: "Email is required" };
+      });
+    } else if (!isValidEmail(emailValue)) {
+      setError((previousState) => {
+        return { ...previousState, email: "Provide a valid email address" };
+      });
+    } else {
+      setError((previousState) => {
+        return { ...previousState, email: "" };
+      });
+    }
+    if (messageValue === "") {
+      setError((previousState) => {
+        return { ...previousState, message: "Message is required" };
+      });
+    } else {
+      setError((previousState) => {
+        return { ...previousState, message: "" };
+      });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const nameValue = contact.name.trim();
+    const emailValue = contact.email.trim();
+    const messageValue = contact.message.trim();
+    if (
+      !nameValue ||
+      !emailValue ||
+      !isValidEmail(emailValue) ||
+      messageValue.length <= 20
+    ) {
+      validateInputs(nameValue, emailValue, messageValue);
+    } else {
+      setMessage("Thank you. Your information has been submitted.");
+    }
+  };
+  return message ? (
+    <div className="card">
+      <div className="card__body">
+        <h3 className="card__title">{message}</h3>
+      </div>
+    </div>
+  ) : (
+    <form action="/" className="form" onSubmit={handleSubmit}>
+      <fieldset>
+        <legend>Contact Us</legend>
+        <div className="input-control">
+          <div className="input-flex">
+            <label className="label">
               Name
+              <input
+                type="text"
+                name="name"
+                value={contact.name || ""}
+                onChange={handleChange}
+              />
             </label>
-            <input className="form-control" type="text" id="name" required />
           </div>
-          <div className="mb-3">
-            <label className="form-label" htmlFor="email">
+          {error.name ? (
+            <div className="error">
+              <p>Name is requered?</p>
+            </div>
+          ) : null}
+        </div>
+        <div className="input-control">
+          <div className="input-flex">
+            <label className="label">
               Email
+              <input
+                type="email"
+                name="email"
+                value={contact.email || ""}
+                onChange={handleChange}
+              />
             </label>
-            <input className="form-control" type="email" id="email" required />
           </div>
-          <div className="mb-3">
-            <label className="form-label" htmlFor="message">
+          {error.email ? (
+            <div className="error">
+              <p>Email is requered?</p>
+            </div>
+          ) : null}
+        </div>
+        <div className="input-control">
+          <div className="input-flex">
+            <label className="label">
               Message
+              <input
+                type="text"
+                name="message"
+                value={contact.message || ""}
+                onChange={handleChange}
+              />
             </label>
-            <textarea className="form-control" id="message" required />
           </div>
-          <Button type="submit">{formStatus}</Button>
-        </Form>
-      </Card.Body>
-    </Card>
+          {error.message ? (
+            <div className="error">
+              <p>Message is requered?</p>
+            </div>
+          ) : null}
+        </div>
+        <button type="submit">Submit Message</button>
+      </fieldset>
+    </form>
   );
 };
 export default ContactForm;

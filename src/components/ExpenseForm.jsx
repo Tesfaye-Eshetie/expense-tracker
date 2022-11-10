@@ -84,7 +84,7 @@ export default function ExpenseForm() {
           </div>
           {isError ? (
             <div className="error">
-              <p className="text-danger">Reason of Expense is requered?</p>
+              <p>Reason of Expense is requered?</p>
             </div>
           ) : null}
         </div>
@@ -102,7 +102,7 @@ export default function ExpenseForm() {
           </div>
           {isError ? (
             <div className="error">
-              <p className="text-danger">Amount is requered?</p>
+              <p>Amount is requered?</p>
             </div>
           ) : null}
         </div>

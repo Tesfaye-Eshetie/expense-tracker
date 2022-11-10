@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import ExpenseForm from "./components/ExpenseForm";
 import FetchExpense from "./components/FetchExpense";
 import FetchIncome from "./components/FetchIncome";
+import ContactForm from "./components/ContactForm";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -22,8 +23,10 @@ function App() {
         <ExpenseForm />
         <FetchExpense />
       </section>
-      {/* <DisplayFAQs />
-      <ContactForm /> */}
+      {/* <DisplayFAQs /> */}
+      <section className="container" id="contact">
+        <ContactForm />
+      </section>
       <Footer />
     </>
   );
