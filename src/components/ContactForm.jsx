@@ -126,12 +126,12 @@ const ContactForm = () => {
           <div className="input-flex">
             <label className="label">
               Message
-              <input
+              <textarea
                 type="text"
                 name="message"
                 value={contact.message || ""}
                 onChange={handleChange}
-              />
+              ></textarea>
             </label>
           </div>
           {error.message ? (

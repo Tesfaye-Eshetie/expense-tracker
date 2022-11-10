@@ -73,7 +73,7 @@ export default function ExpenseForm() {
         <div className="input-control">
           <div className="input-flex">
             <label className="label">
-              Reason of Expense:
+              Reason:
               <input
                 type="text"
                 name="item"

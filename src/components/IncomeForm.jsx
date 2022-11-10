@@ -44,7 +44,7 @@ export default function IncomeForm() {
         <div className="input-control">
           <div className="input-flex">
             <label className="label">
-              Income Source:
+              Source:
               <input
                 type="text"
                 name="source"
