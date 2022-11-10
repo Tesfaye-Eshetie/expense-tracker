@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/images/ExpenseIt.png";
 
 export default function Header() {
   return (
@@ -6,7 +7,7 @@ export default function Header() {
       <input type="checkbox" id="navbar__check" />
       <div className="navbar__logo">
         <a href="index.html">
-          <img src="../assets/ExpensEit.png" alt="Logo" />
+          <img src={logo} alt="Logo" />
         </a>
       </div>
 
