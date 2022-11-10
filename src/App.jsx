@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 // custom css
 import "./App.css";
-// import DisplayFAQs from "./components/DisplayFAQs";
+import DisplayFAQs from "./components/DisplayFAQs";
 
 function App() {
   return (
@@ -23,10 +23,8 @@ function App() {
         <ExpenseForm />
         <FetchExpense />
       </section>
-      {/* <DisplayFAQs /> */}
-      <section className="container" id="contact">
-        <ContactForm />
-      </section>
+      <DisplayFAQs />
+      <ContactForm />
       <Footer />
     </>
   );

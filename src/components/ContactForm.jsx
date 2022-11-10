@@ -77,13 +77,11 @@ const ContactForm = () => {
     }
   };
   return message ? (
-    <div className="card">
-      <div className="card__body">
-        <h3 className="card__title">{message}</h3>
-      </div>
+    <div className="contact">
+      <h3 className="contact__title">{message}</h3>
     </div>
   ) : (
-    <form action="/" className="form" onSubmit={handleSubmit}>
+    <form action="/" id="contact" className="contact" onSubmit={handleSubmit}>
       <fieldset>
         <legend>Contact Us</legend>
         <div className="input-control">

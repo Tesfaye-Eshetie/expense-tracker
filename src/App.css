@@ -147,7 +147,9 @@ fieldset,
 }
 
 legend,
-.card__title {
+.card__title,
+.accordion__title,
+.contact__title {
   font-size: 1.2rem;
   font-weight: var(--fw-black);
   color: var(--clr-dark);
@@ -215,6 +217,35 @@ select {
 select > option {
   background-color: var(--clr-dark);
   color: var(--clr-light);
+}
+
+.accordion,
+.contact {
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--clr-light);
+  border-radius: 0.8rem;
+}
+
+.accordion__question {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: var(--clr-light);
+}
+.accordion__question:hover {
+  background-color: #e3e3e3;
+}
+
+.accordion__question,
+.accordion__answer {
+  padding: 1rem;
+}
+
+.accordion__answer {
+  background-color: #e3e3e3;
 }
 
 .table td,
