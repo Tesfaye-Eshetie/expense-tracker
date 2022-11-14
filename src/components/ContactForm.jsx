@@ -85,17 +85,13 @@ const ContactForm = () => {
       <fieldset>
         <legend>Contact Us</legend>
         <div className="input-control">
-          <div className="input-flex">
-            <label className="label">
-              Name
-              <input
-                type="text"
-                name="name"
-                value={contact.name || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <input
+            type="text"
+            name="name"
+            value={contact.name || ""}
+            onChange={handleChange}
+            placeholder="Name..."
+          />
           {error.name ? (
             <div className="error">
               <p>Name is requered?</p>
@@ -103,17 +99,13 @@ const ContactForm = () => {
           ) : null}
         </div>
         <div className="input-control">
-          <div className="input-flex">
-            <label className="label">
-              Email
-              <input
-                type="email"
-                name="email"
-                value={contact.email || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <input
+            type="email"
+            name="email"
+            value={contact.email || ""}
+            onChange={handleChange}
+            placeholder="Email..."
+          />
           {error.email ? (
             <div className="error">
               <p>Email is requered?</p>
@@ -121,17 +113,13 @@ const ContactForm = () => {
           ) : null}
         </div>
         <div className="input-control">
-          <div className="input-flex">
-            <label className="label">
-              Message
-              <textarea
-                type="text"
-                name="message"
-                value={contact.message || ""}
-                onChange={handleChange}
-              ></textarea>
-            </label>
-          </div>
+          <textarea
+            type="text"
+            name="message"
+            value={contact.message || ""}
+            onChange={handleChange}
+            placeholder="Message..."
+          ></textarea>
           {error.message ? (
             <div className="error">
               <p>Message is requered?</p>

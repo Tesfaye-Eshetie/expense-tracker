@@ -42,17 +42,13 @@ export default function IncomeForm() {
       <fieldset>
         <legend>Enter Your Income Information</legend>
         <div className="input-control">
-          <div className="input-flex">
-            <label className="label">
-              Source:
-              <input
-                type="text"
-                name="source"
-                value={income.source || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <input
+            type="text"
+            name="source"
+            value={income.source || ""}
+            onChange={handleChange}
+            placeholder="Source of income..."
+          />
           {isError ? (
             <div className="error">
               <p>Source of income is requered?</p>
@@ -60,17 +56,13 @@ export default function IncomeForm() {
           ) : null}
         </div>
         <div className="input-control">
-          <div className="input-flex">
-            <label className="label">
-              Amount:
-              <input
-                type="number"
-                name="amount"
-                value={income.amount || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <input
+            type="number"
+            name="amount"
+            value={income.amount || ""}
+            onChange={handleChange}
+            placeholder="Amount..."
+          />
           {isError ? (
             <div className="error">
               <p>Amount is requered?</p>

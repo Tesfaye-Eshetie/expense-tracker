@@ -71,17 +71,13 @@ export default function ExpenseForm() {
           </div>
         </div>
         <div className="input-control">
-          <div className="input-flex">
-            <label className="label">
-              Reason:
-              <input
-                type="text"
-                name="item"
-                value={expense.item || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <input
+            type="text"
+            name="item"
+            value={expense.item || ""}
+            onChange={handleChange}
+            placeholder="Reason of expense..."
+          />
           {isError ? (
             <div className="error">
               <p>Reason of Expense is requered?</p>
@@ -89,17 +85,13 @@ export default function ExpenseForm() {
           ) : null}
         </div>
         <div className="input-control">
-          <div className="input-flex">
-            <label className="label">
-              Amount:
-              <input
-                type="number"
-                name="amount"
-                value={expense.amount || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <input
+            type="number"
+            name="amount"
+            value={expense.amount || ""}
+            onChange={handleChange}
+            placeholder="Amount..."
+          />
           {isError ? (
             <div className="error">
               <p>Amount is requered?</p>
