@@ -116,7 +116,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 90vw;
   margin: 0 auto;
 }
 .form,
@@ -269,9 +269,6 @@ select > option {
 }
 
 @media (min-width: 576px) {
-  .container {
-    width: 90vw;
-  }
   .form,
   .card {
     width: 80%;
