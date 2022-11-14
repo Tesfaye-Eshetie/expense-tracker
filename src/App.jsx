@@ -1,5 +1,4 @@
 import IncomeForm from "./components/IncomeForm";
-import reactLogo from "./assets/react.svg";
 import ExpenseForm from "./components/ExpenseForm";
 import FetchExpense from "./components/FetchExpense";
 import FetchIncome from "./components/FetchIncome";
