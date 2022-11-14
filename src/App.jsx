@@ -23,8 +23,10 @@ function App() {
         <ExpenseForm />
         <FetchExpense />
       </section>
-      <DisplayFAQs />
-      <ContactForm />
+      <section className="container" id="contact">
+        <DisplayFAQs />
+        <ContactForm />
+      </section>
       <Footer />
     </>
   );

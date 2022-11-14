@@ -35,11 +35,6 @@ export default function Header() {
             Contact
           </a>
         </li>
-        <li className="navbar__list">
-          <a href="#faq" className="navbar__link">
-            FAQs
-          </a>
-        </li>
       </ul>
     </nav>
   );

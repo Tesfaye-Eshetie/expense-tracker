@@ -111,7 +111,6 @@ body {
   overflow-y: auto;
   align-items: flex-start;
 }
-
 .container {
   display: flex;
   flex-direction: column;
@@ -140,11 +139,8 @@ fieldset,
   gap: 0.2rem;
   border: none;
 }
-
 legend,
-.card__title,
-.accordion__title,
-.contact__title {
+.card__title {
   font-size: 1.2rem;
   font-weight: var(--fw-black);
   color: var(--clr-dark);
@@ -212,16 +208,9 @@ select > option {
   background-color: var(--clr-dark);
   color: var(--clr-light);
 }
-
-.accordion,
-.contact {
-  max-width: 40rem;
-  margin: 2rem auto;
-  padding: 0.5rem 1.5rem;
-  background-color: var(--clr-light);
-  border-radius: 0.8rem;
+.accordion {
+  min-width: 80%;
 }
-
 .accordion__question {
   display: flex;
   flex-direction: row;
@@ -276,7 +265,7 @@ select > option {
   color: var(--clr-light);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar {
     padding: 0.5rem 5rem;
   }
