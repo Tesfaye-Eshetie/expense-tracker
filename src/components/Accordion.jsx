@@ -9,10 +9,10 @@ export const Accordion = ({ Question, Answer }) => {
         className="accordion__question"
         onClick={() => setIsActive(!isActive)}
       >
-        <div>{Question}</div>
+        <h4>{Question}</h4>
         <div>{isActive ? "-" : "+"}</div>
       </div>
-      {isActive && <div className="accordion__answer">{Answer}</div>}
+      {isActive && <p className="accordion__answer">{Answer}</p>}
     </div>
   );
 };
