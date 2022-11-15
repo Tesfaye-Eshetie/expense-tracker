@@ -2,7 +2,7 @@ import React from "react";
 
 const TotalExpenses = () => {
   return (
-    <div className="alert alert-danger">
+    <div className="card">
       <span>Spent: $500</span>
     </div>
   );

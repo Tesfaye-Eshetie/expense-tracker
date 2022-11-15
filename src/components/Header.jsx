@@ -1,38 +1,41 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import logo from "/images/ExpenseIt.png";
 
 export default function Header() {
   return (
-    <Navbar sticky="top" bg="dark" variant="dark" expand="md">
-      <Container fluid>
-        <Navbar.Brand href="#">Logo</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100vh" }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Income</Nav.Link>
-            <Nav.Link href="#action2">Expense</Nav.Link>
-            <Nav.Link href="#action2">Contact</Nav.Link>
-          </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav className="navbar">
+      <input type="checkbox" id="navbar__check" />
+      <div className="navbar__logo">
+        <a href="index.html">
+          <img src={logo} alt="Logo" />
+        </a>
+      </div>
+
+      <div className="navbar__btn">
+        <label htmlFor="navbar__check">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+
+      <ul className="navbar__items">
+        <li className="navbar__list">
+          <a href="#income" className="navbar__link">
+            Income
+          </a>
+        </li>
+        <li className="navbar__list">
+          <a href="#expense" className="navbar__link">
+            Expense
+          </a>
+        </li>
+        <li className="navbar__list">
+          <a href="#contact" className="navbar__link">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
 }

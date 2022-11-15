@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { database } from "../detabase/indexedDB";
+import { database } from "../data/indexedDB";
 import DisplayTable from "./DisplayTable";
-import Card from "react-bootstrap/Card";
 
 export default function FetchExpense() {
   const [expense, setExpense] = useState([]);
@@ -19,11 +18,11 @@ export default function FetchExpense() {
   }, [expense]);
 
   return isDataAvailable ? (
-    <Card className="m-4">
-      <Card.Body className="p-4">
-        <h4 className="text-capitalize pb-3">Expense Chart</h4>
-        <DisplayTable name={"Reason for Expense"} data={expense} />
-      </Card.Body>
-    </Card>
+    <div className="card">
+      <div className="card__body">
+        <h3 className="card__title">Expense Chart</h3>
+        <DisplayTable reason={"Reason"} data={expense} name="Expense" />
+      </div>
+    </div>
   ) : null;
 }

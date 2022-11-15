@@ -1,0 +1,33 @@
+[
+    {
+      "id": "1",
+      "Question": "What is my income?",
+      "Answer": "Start with your monthly take-home paycheck. If you earn variable wages or are an entrepreneur/freelance worker, you can use either an average monthly income for a recent period (at least six months) or the lowest income you earned for one month. Do not include bonuses or non-regular income. If uncertain, use a more conservative figure."
+    },
+    {
+      "id": "2",
+      "Question": " What are my expenses?",
+      "Answer": "Your expenses are made up of both expected and unforeseen costs. The costs for things like insurance premiums, gym dues, parking, phone and internet, daycare, subscriptions, and rent are examples of recurring expenses. Your groceries, entertainment, dining out, travel, shopping, gifts, charitable donations, etc. are examples of variable or discretionary costs"
+    },
+    {
+      "id": "3",
+      "Question": "How much do I need to save?",
+      "Answer": "Instead of subtracting your expenses from your income and saving whatever is left, take a different approach. Determine how much you need to save and lower your expenses until you reach your monthly savings goal. If that's not possible, increase your income as well. How much you need to save depends on the size of your family, your lifestyle and future plans. For example, if you are saving for retirement, it's a good idea to project the expected yield on bonds you own, your stock portfolio performance, any pensions you will receive and Social Security income. Subtract that monthly income from what you project your expenses will be in retirement. If your calculation shows a deficit -- your total income does not at least equal your expenses -- you will have to adjust your expense budget downward to fund the difference through additional savings."
+    },
+    {
+      "id": "4",
+      "Question": "How can I include unexpected expenses?",
+      "Answer": "Unexpected expenses don't have to be unplanned expenses. You know that you'll require auto maintenance, for example -- you just don't know when you'll need it. Budget for it based on the age and make of your auto. Compare the age of your appliances to the average expected life span. If your refrigerator is six years old and the average life span is 10 years, start saving for a new refrigerator by putting away $25 a month for the next four years."
+    },
+    {
+      "id": "5",
+      "Question": "How will I stay on track?",
+      "Answer": "You need to hold yourself accountable when you begin to veer off into bad spending habits. Motivate yourself by thinking about the vision you set for your financial future. When you're tempted to splurge, resist the urge by imagining yourself on that vacation."
+    },
+    {
+      "id": "6",
+      "Question": "How can I make this sustainable?",
+      "Answer": "Consider automating your investing and saving by having money deducted from your paycheck. A Federal Reserve report states that the majority of consumers who get notifications concerning low account balances respond by reducing their spending. According to the same study, most customers with mobile access to financial information check their balances before making significant purchases, and of those who do, 50% opt not to make the transaction as a result. Make sure your budgeting techniques are sustainable as you monitor your progress. You should use a methodology that is comfortable, whether you use a spreadsheet, a pencil, or an internet tool. A system is only 'correct' if it meets your needs and resonates with you personally."
+    }
+  ]
+  

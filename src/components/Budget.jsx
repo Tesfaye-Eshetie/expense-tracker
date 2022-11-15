@@ -2,7 +2,7 @@ import React from "react";
 
 const Budget = () => {
   return (
-    <div className="alert alert-secondary">
+    <div className="card">
       <span>Budget: $1500</span>
     </div>
   );

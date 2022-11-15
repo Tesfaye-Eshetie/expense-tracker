@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { database } from "../detabase/indexedDB";
+import { database } from "../data/indexedDB";
 import DisplayTable from "./DisplayTable";
-import Card from "react-bootstrap/Card";
 
 export default function FetchIncome() {
   const [income, setIncome] = useState([]);
@@ -18,11 +17,11 @@ export default function FetchIncome() {
     getIncome();
   }, [income]);
   return isDataAvailable ? (
-    <Card className="m-4">
-      <Card.Body className="p-4">
-        <h4 className="text-capitalize pb-3">Income Chart</h4>
-        <DisplayTable name={"Income source"} data={income} />
-      </Card.Body>
-    </Card>
+    <div className="card">
+      <div className="card__body">
+        <h3 className="card__title">Income Chart</h3>
+        <DisplayTable reason={"Source"} data={income} name="Income" />
+      </div>
+    </div>
   ) : null;
 }
