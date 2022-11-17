@@ -1,8 +1,6 @@
 import { formatCurrency } from "../utilities/formatCurrency";
 
-export default function DisplayTable({ reason, data, name }) {
-  let total = 0;
-
+export default function DisplayTable({ reason, data, name, total }) {
   return (
     <table className="table">
       <thead>
@@ -18,9 +16,7 @@ export default function DisplayTable({ reason, data, name }) {
           <tr key={d.id}>
             <td>{index + 1}</td>
             <td>{d.source ? d.source : d.item}</td>
-            <td key={(total += parseInt(d.amount))}>
-              {formatCurrency(parseInt(d.amount))}
-            </td>
+            <td>{formatCurrency(parseInt(d.amount))}</td>
             <td>{d.date}</td>
           </tr>
         ))}

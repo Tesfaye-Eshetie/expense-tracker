@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { database } from "../data/indexedDB";
+import { useContext } from "react";
+import { ExpenseContext } from "../context/GlobalState";
 import DisplayTable from "./DisplayTable";
 
 export default function FetchExpense() {
-  const [expense, setExpense] = useState([]);
-  const [isDataAvailable, setIsDataAvailable] = useState(false);
+  const expenseValue = useContext(ExpenseContext);
 
-  const getExpense = async () => {
-    (await database).getAll("expenseStore").then((data) => {
-      setExpense(data);
-      data.length ? setIsDataAvailable(true) : setIsDataAvailable(false);
-    });
-  };
-
-  useEffect(() => {
-    getExpense();
-  }, [expense]);
-
-  return isDataAvailable ? (
+  return expenseValue[1] ? (
     <div className="card">
       <div className="card__body">
         <h3 className="card__title">Expense Chart</h3>
-        <DisplayTable reason={"Reason"} data={expense} name="Expense" />
+        <DisplayTable
+          reason={"Reason"}
+          data={expenseValue[0]}
+          name="Expense"
+          total={expenseValue[2]}
+        />
       </div>
     </div>
   ) : null;

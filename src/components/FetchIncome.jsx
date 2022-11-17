@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { database } from "../data/indexedDB";
+import { useContext } from "react";
+import { IncomeContext } from "../context/GlobalState";
 import DisplayTable from "./DisplayTable";
 
 export default function FetchIncome() {
-  const [income, setIncome] = useState([]);
-  const [isDataAvailable, setIsDataAvailable] = useState(false);
+  const incomeValue = useContext(IncomeContext);
 
-  const getIncome = async () => {
-    (await database).getAll("incomeStore").then((data) => {
-      setIncome(data);
-      data.length ? setIsDataAvailable(true) : setIsDataAvailable(false);
-    });
-  };
-
-  useEffect(() => {
-    getIncome();
-  }, [income]);
-  return isDataAvailable ? (
+  return incomeValue[1] ? (
     <div className="card">
       <div className="card__body">
         <h3 className="card__title">Income Chart</h3>
-        <DisplayTable reason={"Source"} data={income} name="Income" />
+        <DisplayTable
+          reason={"Source"}
+          data={incomeValue[0]}
+          name="Income"
+          total={incomeValue[2]}
+        />
       </div>
     </div>
   ) : null;
