@@ -16,7 +16,7 @@ export default function DisplayTable({ reason, data, name, total }) {
           <tr key={d.id}>
             <td>{index + 1}</td>
             <td>{d.source ? d.source : d.item}</td>
-            <td>{formatCurrency(parseInt(d.amount))}</td>
+            <td>{formatCurrency(+d.amount)}</td>
             <td>{d.date}</td>
           </tr>
         ))}

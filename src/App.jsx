@@ -5,10 +5,10 @@ import ExpenseForm from "./components/ExpenseForm";
 import FetchExpense from "./components/FetchExpense";
 import FetchIncome from "./components/FetchIncome";
 import ContactForm from "./components/ContactForm";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import DisplayFAQs from "./components/DisplayFAQs";
 import FinancialStatus from "./components/FinancialStatus";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import { database } from "./data/indexedDB";
 import { IncomeContext, ExpenseContext } from "./context/GlobalState";
@@ -28,9 +28,7 @@ function App() {
     (await database).getAll("incomeStore").then((data) => {
       setIncome(data);
       setTotalIncome(
-        data
-          .map((d) => parseInt(d.amount))
-          .reduce((acc, item) => (acc += item), 0)
+        data.map((d) => +d.amount).reduce((acc, item) => (acc += item), 0)
       );
       data.length ? setIsIncomeAvailable(true) : setIsIncomeAvailable(false);
     });
@@ -40,9 +38,7 @@ function App() {
     (await database).getAll("expenseStore").then((data) => {
       setExpense(data);
       setTotalExpense(
-        data
-          .map((d) => parseInt(d.amount))
-          .reduce((acc, item) => (acc += item), 0)
+        data.map((d) => +d.amount).reduce((acc, item) => (acc += item), 0)
       );
       data.length ? setIsExpenseAvailable(true) : setIsExpenseAvailable(false);
     });
@@ -51,7 +47,7 @@ function App() {
   useEffect(() => {
     getIncome();
     getExpense();
-  }, [income]);
+  }, [income, expense]);
   const incomeValue = [income, isIncomeAvailable, totalIncome];
   const expenseValue = [expense, isExpenseAvailable, totalExpense];
   return (

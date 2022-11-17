@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { addExpense } from "../data/indexedDB";
 import { v4 as uuid } from "uuid";
 
