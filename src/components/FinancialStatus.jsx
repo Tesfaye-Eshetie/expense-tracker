@@ -1,33 +1,23 @@
 import { useContext, useState, useEffect } from "react";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { IncomeContext, ExpenseContext } from "../context/GlobalState";
-import axios from "axios";
+import { database } from "../data/indexedDB";
+import { FetchGiphy } from "./FetchGiphy";
 
 export default function FinancialStatus() {
   const incomeValue = useContext(IncomeContext);
   const expenseValue = useContext(ExpenseContext);
-  const [randomGif, setRandomGif] = useState();
+  const [randomGiphy, setRandomGiphy] = useState();
 
-  useEffect(
-    () => async () => {
-      let query;
-      if (incomeValue && expenseValue && incomeValue >= expenseValue) {
-        query = "happy";
-      } else {
-        query = "sad";
-      }
-      try {
-        const { data } = await axios.get(
-          `https://api.giphy.com/v1/gifs/search?q=${query}&limit=6&api_key=n9Ckrer7sonqSKbjISSzcG1qxwDAzGPl`
-        );
-        const gifs = data.data;
-        setRandomGif(gifs[Math.floor(Math.random() * gifs.length)]);
-      } catch (err) {
-        console.log("Error fetching and parsing data", err);
-      }
-    },
-    []
-  );
+  const getRandomHappyGiphy = async (key) => {
+    (await database).get("happyGiphy", key).then((data) => {
+      setRandomGiphy(data[Math.floor(Math.random() * data.length)]);
+    });
+  };
+
+  useEffect(() => {
+    getRandomHappyGiphy("happy");
+  }, []);
 
   return (
     <div className="container">
@@ -35,13 +25,18 @@ export default function FinancialStatus() {
         <div className="card__body">
           <h3 className="card__title">Financial status Balance</h3>
           <div className="gif-wrap">
-            <img src={randomGif?.images.fixed_height.url} alt="" />
+            <img
+              src={randomGiphy?.images.fixed_height.url}
+              alt="random giphy happy animation"
+              loading="lazy"
+            />
           </div>
           <h3 className="card__title">
             {formatCurrency(incomeValue[2] - expenseValue[2])}
           </h3>
         </div>
       </div>
+      {!randomGiphy && <FetchGiphy />}
     </div>
   );
 }

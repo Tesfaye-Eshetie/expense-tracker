@@ -123,6 +123,7 @@ p {
 .form,
 .card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--clr-dark);
@@ -131,7 +132,6 @@ p {
   padding: 1rem;
   background-color: var(--clr-light);
   border-radius: 1rem;
-  position: relative;
 }
 fieldset,
 .card__body {
@@ -167,9 +167,6 @@ button {
 .bnt__clear {
   background-color: #f35656;
   border-color: #f35656;
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
 }
 button:hover {
   background-color: var(--clr-light);
