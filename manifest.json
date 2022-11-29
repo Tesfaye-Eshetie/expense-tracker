@@ -1,6 +1,6 @@
 {
-  "short_name": "Movie App",
-  "name": "ExpenseIt",
+  "short_name": "ExpenseIt",
+  "name": "Expense Tracker",
   "icons": [
     {
       "src": "images/icon-48x48.png",
