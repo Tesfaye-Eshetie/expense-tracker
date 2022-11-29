@@ -12,3 +12,10 @@ export const addIncome = async (key, data) =>
 
 export const addExpense = async (key, data) =>
   (await database).put("expenseStore", data, key);
+
+export const clearIncome = async () => {
+  return (await database).clear("incomeStore");
+};
+export const clearExpense = async () => {
+  return (await database).clear("expenseStore");
+};
