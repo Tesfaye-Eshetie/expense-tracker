@@ -136,6 +136,8 @@ fieldset,
 .card__body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 0.2rem;
   border: none;
 }
@@ -247,6 +249,15 @@ select > option {
 }
 .table .table__text__center {
   text-align: center;
+}
+.gif-wrap {
+  background-color: inherit;
+}
+
+.gif-wrap img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10%;
 }
 .footer {
   background-color: var(--clr-dark);
