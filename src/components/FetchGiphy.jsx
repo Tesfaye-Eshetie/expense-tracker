@@ -10,7 +10,6 @@ export const FetchGiphy = () => {
           `https://api.giphy.com/v1/gifs/search?q=happy&limit=6&api_key=n9Ckrer7sonqSKbjISSzcG1qxwDAzGPl`
         );
         const gifs = data.data;
-
         setHappyGiphy("happy", gifs);
       } catch (err) {
         console.log("Error fetching and parsing data", err);
