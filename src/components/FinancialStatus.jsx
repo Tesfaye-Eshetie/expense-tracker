@@ -1,23 +1,28 @@
 import { useContext, useState, useEffect } from "react";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { IncomeContext, ExpenseContext } from "../context/GlobalState";
-import { database } from "../data/indexedDB";
-import { FetchGiphy } from "./FetchGiphy";
+import axios from "axios";
 
 export default function FinancialStatus() {
   const incomeValue = useContext(IncomeContext);
   const expenseValue = useContext(ExpenseContext);
   const [randomGiphy, setRandomGiphy] = useState();
 
-  const getRandomHappyGiphy = async (key) => {
-    (await database).get("happyGiphy", key).then((data) => {
-      setRandomGiphy(data[Math.floor(Math.random() * data?.length)]);
-    });
-  };
-
-  useEffect(() => {
-    getRandomHappyGiphy("happy");
-  }, []);
+  useEffect(
+    () => async () => {
+      try {
+        const { data } = await axios.get(
+          `https://api.giphy.com/v1/gifs/search?q=happy&limit=12&api_key=n9Ckrer7sonqSKbjISSzcG1qxwDAzGPl`
+        );
+        const gifs = data.data;
+        const gif = gifs[Math.floor(Math.random() * gifs?.length)];
+        setRandomGiphy(gif);
+      } catch (err) {
+        console.log("Error fetching and parsing data", err);
+      }
+    },
+    []
+  );
 
   return (
     <div className="container">
@@ -36,7 +41,6 @@ export default function FinancialStatus() {
           </h3>
         </div>
       </div>
-      {!randomGiphy && <FetchGiphy />}
     </div>
   );
 }
