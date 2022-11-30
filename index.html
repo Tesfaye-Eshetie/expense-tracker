@@ -11,22 +11,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="manifest" href="/manifest.json" />
     <link rel="apple-touch-icon" href="/images/logo_192.png" />
     <title>Expense Tracker</title>
+    <meta name="description" content="Expense Tracker PWA" />
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("./serviceworker.js")
-            .then((reg) => console.log("Success: ", reg.scope))
-            .catch((err) => console.log("Failure: ", err));
-        });
-      }
-    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
