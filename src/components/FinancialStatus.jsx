@@ -11,7 +11,7 @@ export default function FinancialStatus() {
 
   const getRandomHappyGiphy = async (key) => {
     (await database).get("happyGiphy", key).then((data) => {
-      setRandomGiphy(data[Math.floor(Math.random() * data.length)]);
+      setRandomGiphy(data[Math.floor(Math.random() * data?.length)]);
     });
   };
 
