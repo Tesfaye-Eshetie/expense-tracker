@@ -6,13 +6,6 @@ self.addEventListener("install", (event) => {
       return cache.addAll([
         "/",
         "index.html",
-        "src/App.css",
-        "src/App.jsx",
-        "src/main.jsx",
-        "src/assets/images/ExpenseIt.png",
-        "src/utilities/formatCurrency.js",
-        "src/data/FAQs.json",
-        "src/data/indexedDB.js",
       ]);
     })
   );
