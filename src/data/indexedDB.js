@@ -4,7 +4,6 @@ export const database = openDB("capstoneDB", 1, {
   upgrade(db) {
     db.createObjectStore("incomeStore");
     db.createObjectStore("expenseStore");
-    db.createObjectStore("happyGiphy");
   },
 });
 
@@ -20,6 +19,3 @@ export const clearIncome = async () => {
 export const clearExpense = async () => {
   return (await database).clear("expenseStore");
 };
-
-export const setHappyGiphy = async (key, data) =>
-  (await database).put("happyGiphy", data, key);
