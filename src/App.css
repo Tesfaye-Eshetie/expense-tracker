@@ -119,6 +119,7 @@ p {
   align-items: center;
   width: 90vw;
   margin: 0 auto;
+  position: relative;
 }
 .form,
 .card {
@@ -255,14 +256,21 @@ select > option {
 .table .table__text__center {
   text-align: center;
 }
-.gif-wrap {
-  background-color: inherit;
-}
 
-.gif-wrap img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10%;
+.photo_wrap {
+  width: 20rem;
+  height: 20rem;
+  opacity: 0.3;
+  border-radius: 2rem;
+  object-fit: cover;
+  object-position: center;
+}
+.photo_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
 }
 .footer {
   background-color: var(--clr-dark);
@@ -293,6 +301,9 @@ select > option {
   legend,
   .card__title {
     font-size: 1.2rem;
+  }
+  .photo_wrap {
+    width: 24rem;
   }
   .input-control input,
   .input-control textarea {

@@ -6,39 +6,46 @@ import axios from "axios";
 export default function FinancialStatus() {
   const incomeValue = useContext(IncomeContext);
   const expenseValue = useContext(ExpenseContext);
-  const [randomGiphy, setRandomGiphy] = useState();
+  const [randomPhoto, setRandomPhoto] = useState();
 
-  useEffect(
-    () => async () => {
-      try {
-        const { data } = await axios.get(
-          `https://api.giphy.com/v1/gifs/search?q=happy&limit=12&api_key=n9Ckrer7sonqSKbjISSzcG1qxwDAzGPl`
-        );
-        const gifs = data.data;
-        const gif = gifs[Math.floor(Math.random() * gifs?.length)];
-        setRandomGiphy(gif);
-      } catch (err) {
+  const URL = "https://picsum.photos/v2/list?limit=100";
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchRandomPhotes();
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const fetchRandomPhotes = async () => {
+    try {
+      const { data } = await axios.get(URL);
+      const randomPhoto = await data[Math.floor(Math.random() * data.length)];
+      console.log(randomPhoto);
+      setRandomPhoto(randomPhoto);
+    } catch (err) {
+      if (err instanceof Error) {
         console.log("Error fetching and parsing data", err);
       }
-    },
-    []
-  );
+    }
+  };
 
   return (
     <div className="container">
       <div className="card">
         <div className="card__body">
-          <h3 className="card__title">Financial status Balance</h3>
-          <div className="gif-wrap">
-            <img
-              src={randomGiphy?.images.fixed_height.url}
-              alt="random giphy happy animation"
-              loading="lazy"
-            />
+          <img
+            src={randomPhoto?.download_url}
+            alt="random photo"
+            loading="lazy"
+            className="photo_wrap"
+          />
+          <div className="photo_text">
+            {" "}
+            <h3 className="card__title">Financial status Balance</h3>{" "}
+            <h3 className="card__title">
+              {formatCurrency(incomeValue[2] - expenseValue[2])}
+            </h3>
           </div>
-          <h3 className="card__title">
-            {formatCurrency(incomeValue[2] - expenseValue[2])}
-          </h3>
         </div>
       </div>
     </div>
