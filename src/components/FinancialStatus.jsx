@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { IncomeContext, ExpenseContext } from "../context/GlobalState";
-import { database, setPhoto } from "../data/indexedDB";
 import axios from "axios";
 
 export default function FinancialStatus() {
@@ -11,30 +10,21 @@ export default function FinancialStatus() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      fetchRandomPhotes("photo");
-    }, 4000);
+      fetchRandomPhotes();
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const fetchRandomPhotes = async (key) => {
-    (await database).get("photoStore", key).then((data) => {
-      if (data) {
-        const photo = data[Math.floor(Math.random() * data.length)];
-        setRandomPhoto(photo);
-      } else {
-        (async () => {
-          try {
-            const { data } = await axios.get(
-              "https://picsum.photos/v2/list?limit=100"
-            );
-            setPhoto("photo", data);
-            window.location.reload();
-          } catch (err) {
-            console.log("Error fetching and parsing data", err);
-          }
-        })();
-      }
-    });
+  const fetchRandomPhotes = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://picsum.photos/v2/list?limit=100"
+      );
+      const photo = data[Math.floor(Math.random() * data.length)];
+      setRandomPhoto(photo);
+    } catch (err) {
+      console.log("Error fetching and parsing data", err);
+    }
   };
 
   return (
@@ -42,14 +32,14 @@ export default function FinancialStatus() {
       <div className="card img_wrap">
         <img
           src={randomPhoto?.download_url}
-          alt="random photo"
+          alt=""
           loading="lazy"
           className="photo_wrap"
         />
         <div className="photo_text">
           {" "}
-          <h3 className="card__title">Financial status Balance</h3>{" "}
-          <h3 className="card__title">
+          <h3 className="status__title">Balance of Income and Expenses</h3>{" "}
+          <h3 className="status__title">
             {formatCurrency(incomeValue[2] - expenseValue[2])}
           </h3>
         </div>

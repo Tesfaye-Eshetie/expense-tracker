@@ -1,10 +1,10 @@
 import { openDB } from "idb";
 
-export const database = openDB("capstoneDatabase", 1, {
+export const database = openDB("capstoneDB-v1", 1, {
   upgrade(db) {
     db.createObjectStore("incomeStore");
     db.createObjectStore("expenseStore");
-    db.createObjectStore("photoStore");
+    db.createObjectStore("quoteStore");
   },
 });
 
@@ -21,6 +21,6 @@ export const clearExpense = async () => {
   return (await database).clear("expenseStore");
 };
 
-export const setPhoto = async (key, data) => {
-  (await database).put("photoStore", data, key);
+export const setQuote = async (key, data) => {
+  (await database).put("quoteStore", data, key);
 };

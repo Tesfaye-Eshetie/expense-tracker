@@ -152,6 +152,15 @@ legend,
   padding-top: 1rem;
   text-align: center;
 }
+
+.status__title {
+  font-size: 1.5rem;
+  font-weight: var(--fw-black);
+  color: var(--clr-dark);
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
 button {
   font-size: 0.9rem;
   font-weight: 700;
