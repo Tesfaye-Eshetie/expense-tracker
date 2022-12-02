@@ -9,31 +9,31 @@ export default function FinancialStatus() {
   const expenseValue = useContext(ExpenseContext);
   const [randomPhoto, setRandomPhoto] = useState();
 
-  useEffect(
-    () => async () => {
-      try {
-        const { data } = await axios.get(
-          "https://picsum.photos/v2/list?limit=100"
-        );
-        setPhoto("photo", data);
-      } catch (err) {
-        console.log("Error fetching and parsing data", err);
-      }
-    },
-    []
-  );
-
   useEffect(() => {
     const interval = setInterval(() => {
       fetchRandomPhotes("photo");
-    }, 2000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   const fetchRandomPhotes = async (key) => {
     (await database).get("photoStore", key).then((data) => {
-      const randomPhoto = data[Math.floor(Math.random() * data?.length)];
-      setRandomPhoto(randomPhoto);
+      if (data) {
+        const photo = data[Math.floor(Math.random() * data.length)];
+        setRandomPhoto(photo);
+      } else {
+        (async () => {
+          try {
+            const { data } = await axios.get(
+              "https://picsum.photos/v2/list?limit=100"
+            );
+            setPhoto("photo", data);
+            window.location.reload();
+          } catch (err) {
+            console.log("Error fetching and parsing data", err);
+          }
+        })();
+      }
     });
   };
 
