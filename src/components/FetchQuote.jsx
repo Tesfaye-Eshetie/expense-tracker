@@ -12,7 +12,6 @@ export default function FetchQuote() {
       const { data } = await axios.get(
         `https://api.adviceslip.com/advice/${id}`
       );
-      console.log(data);
       setQuote(id, data.slip.advice);
     } catch (err) {
       if (err) {
@@ -23,7 +22,6 @@ export default function FetchQuote() {
 
   const fetchQuotes = async () => {
     (await database).getAll("quoteStore").then((data) => {
-      console.log(data.length);
       if (!data.length) {
         fetchRandomQuote(9);
         fetchRandomQuote(61);
@@ -42,7 +40,6 @@ export default function FetchQuote() {
   const getRandomQuote = async () => {
     (await database).getAll("quoteStore").then((data) => {
       const quote = data[Math.floor(Math.random() * data.length)];
-      console.log(quote);
       setRandomQuote(quote);
     });
   };
