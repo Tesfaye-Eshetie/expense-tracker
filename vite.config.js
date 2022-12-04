@@ -8,6 +8,11 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: "autoUpdate",
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true,
+      },
       manifest: {
         short_name: "ExpenseIt",
         name: "Expense Tracker",
