@@ -1,7 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { IncomeContext, ExpenseContext } from "../context/GlobalState";
+import picture from "/images/photo.avif";
 import axios from "axios";
+import FetchQuote from "./FetchQuote";
 
 export default function FinancialStatus() {
   const incomeValue = useContext(IncomeContext);
@@ -18,7 +20,7 @@ export default function FinancialStatus() {
   const fetchRandomPhotes = async () => {
     try {
       const { data } = await axios.get(
-        "https://picsum.photos/v2/list?limit=100"
+        "https://picsum.photos/v2/list?limit=60"
       );
       const photo = data[Math.floor(Math.random() * data.length)];
       setRandomPhoto(photo);
@@ -31,7 +33,7 @@ export default function FinancialStatus() {
     <div className="container">
       <div className="card img_wrap">
         <img
-          src={randomPhoto?.download_url}
+          src={randomPhoto ? randomPhoto?.download_url : picture}
           alt=""
           loading="lazy"
           className="photo_wrap"
@@ -44,6 +46,7 @@ export default function FinancialStatus() {
           </h3>
         </div>
       </div>
+      <FetchQuote />
     </div>
   );
 }
