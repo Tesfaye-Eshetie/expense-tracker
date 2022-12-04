@@ -168,6 +168,7 @@ button {
   text-align: center;
   text-transform: uppercase;
   background-color: var(--clr-primary);
+  color: var(--clr-dark);
   border-radius: 1em;
   cursor: pointer;
   border-color: var(--clr-light);
@@ -180,7 +181,6 @@ button {
 }
 button:hover {
   background-color: var(--clr-light);
-  color: #000;
 }
 .input-control {
   display: flex;
