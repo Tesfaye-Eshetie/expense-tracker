@@ -30,7 +30,7 @@ export default function FinancialStatus() {
   };
 
   return (
-    <div className="container container__full">
+    <div className="container">
       <div className="card img__wrap">
         <img
           src={randomPhoto?.download_url}
