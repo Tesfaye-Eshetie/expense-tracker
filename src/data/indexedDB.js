@@ -1,6 +1,6 @@
 import { openDB } from "idb";
 
-export const database = openDB("capstoneDB-v1", 1, {
+export const database = openDB("capstoneDB-v2", 1, {
   upgrade(db) {
     db.createObjectStore("incomeStore");
     db.createObjectStore("expenseStore");
