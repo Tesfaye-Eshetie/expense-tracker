@@ -77,58 +77,62 @@ const ContactForm = () => {
     }
   };
   return message ? (
-    <div className="card">
-      <h3 className="card__title">{message}</h3>
+    <div className="container container__full" id="contact">
+      <div className="card">
+        <h3 className="card__title">{message}</h3>
+      </div>
     </div>
   ) : (
-    <form action="/" className="form" onSubmit={handleSubmit}>
-      <fieldset>
-        <legend>Contact Us</legend>
-        <div className="input-control">
-          <input
-            type="text"
-            name="name"
-            value={contact.name || ""}
-            onChange={handleChange}
-            placeholder="Name..."
-          />
-          {error.name ? (
-            <div className="error">
-              <p>Name is requered?</p>
-            </div>
-          ) : null}
-        </div>
-        <div className="input-control">
-          <input
-            type="email"
-            name="email"
-            value={contact.email || ""}
-            onChange={handleChange}
-            placeholder="Email..."
-          />
-          {error.email ? (
-            <div className="error">
-              <p>Email is requered?</p>
-            </div>
-          ) : null}
-        </div>
-        <div className="input-control">
-          <textarea
-            type="text"
-            name="message"
-            value={contact.message || ""}
-            onChange={handleChange}
-            placeholder="Message..."
-          ></textarea>
-          {error.message ? (
-            <div className="error">
-              <p>Message is requered?</p>
-            </div>
-          ) : null}
-        </div>
-        <button type="submit">Submit Message</button>
-      </fieldset>
-    </form>
+    <div className="container container__full" id="contact">
+      <form action="/" className="form" onSubmit={handleSubmit}>
+        <fieldset>
+          <legend>Contact Us</legend>
+          <div className="input-control">
+            <input
+              type="text"
+              name="name"
+              value={contact.name || ""}
+              onChange={handleChange}
+              placeholder="Name..."
+            />
+            {error.name ? (
+              <div className="error">
+                <p>Name is requered?</p>
+              </div>
+            ) : null}
+          </div>
+          <div className="input-control">
+            <input
+              type="email"
+              name="email"
+              value={contact.email || ""}
+              onChange={handleChange}
+              placeholder="Email..."
+            />
+            {error.email ? (
+              <div className="error">
+                <p>Email is requered?</p>
+              </div>
+            ) : null}
+          </div>
+          <div className="input-control">
+            <textarea
+              type="text"
+              name="message"
+              value={contact.message || ""}
+              onChange={handleChange}
+              placeholder="Message..."
+            ></textarea>
+            {error.message ? (
+              <div className="error">
+                <p>Message is requered?</p>
+              </div>
+            ) : null}
+          </div>
+          <button type="submit">Submit Message</button>
+        </fieldset>
+      </form>
+    </div>
   );
 };
 export default ContactForm;

@@ -8,7 +8,7 @@ import FetchQuote from "./FetchQuote";
 export default function FinancialStatus() {
   const incomeValue = useContext(IncomeContext);
   const expenseValue = useContext(ExpenseContext);
-  const [randomPhoto, setRandomPhoto] = useState();
+  const [randomPhoto, setRandomPhoto] = useState({ download_url: picture });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,17 +30,17 @@ export default function FinancialStatus() {
   };
 
   return (
-    <div className="container">
-      <div className="card img_wrap">
+    <div className="container container__full">
+      <div className="card img__wrap">
         <img
-          src={randomPhoto ? randomPhoto?.download_url : picture}
+          src={randomPhoto?.download_url}
           alt=""
           loading="lazy"
-          className="photo_wrap"
+          className="photo__wrap"
         />
-        <div className="photo_text">
+        <div className="photo__text">
           {" "}
-          <h3 className="status__title">Balance of Income and Expenses</h3>{" "}
+          <h3 className="status__title">Income and Expense Balance</h3>{" "}
           <h3 className="status__title">
             {formatCurrency(incomeValue[2] - expenseValue[2])}
           </h3>

@@ -64,10 +64,8 @@ function App() {
             <ExpenseForm />
             <FetchExpense />
           </section>
-          <section className="container" id="contact">
-            <DisplayFAQs />
-            <ContactForm />
-          </section>
+          <DisplayFAQs />
+          <ContactForm />
         </main>
         <Footer />
       </IncomeContext.Provider>
